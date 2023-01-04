@@ -1,0 +1,70 @@
+WCF - Windows Communication Foundation. (okienkowy/(windowsowy w sensie system) fundacja komunikacji.
+
+umozliwa komunikacje pomiedzy roznymi systemami operacyjnymi.
+Aplikacje WCF składają się z 3 części:
+* WCF service
+* WCF service host
+* WCF service client
+
+zagadniania związane z WCF, co nalezy wiedziec:
+* Message:
+Wiadomość oprócz ciała body, o wiadomości/Messgae mowimy gdy mamy namysli wszelką komunikacje klient-server.
+* Endpoint
+Adres na który wysyłamy/odbieramy message. Określa również sposób komunikacji. Sposób komunikacji zawarty bedzie w wiadomosci/message.
+Endpoint składa się z:
+- Adresu:
+inaczej URI (Uniform Resource Identifier) (dokładny adres odbiorcy)  scheme://domain[:port]/[path] np. net.tcp://localhost:9000/ServiceA
+net.tcp jest shcematem dla protokołu TCP. 
+- Bindingu:
+Określa sposób komunikacji rodzaj protokołu TCP, HTTP itd. Jak również format kodowania (message encoding) i security protocol 
+- Contracts:
+lista dostępnych metod z których klient moze skorzystac. To chyba wsdl 
+- Metadata:
+w celu ułatwienia interakcji klient-serwer. Zazwyczaj generowanie automatycznie
+* WCF Client
+Aplikacja która korzysta z metod udostępnionych przez serwer. Może być hostowana przez dowolną aplikacje nawet przez ta na której znajduje się serwer
+* Channel
+kanał przez który odbywa się komunikacja. Wifi cabel
+* SOAP 
+Simple object access protocol. SOAP nie jest protokołem jak np. TCP. Jest to dokument XML, zawierający nagłowek (header) i ciało (body)
+
+Zalety WCF
+* Działa na wielu sytemach operacyjnych. Klient i serwer musza mieć zainstalowane biblioteki .NET
+* Bezpieczenistwo i niezawodność lepsza niż w ASMX web servies
+* WCF jest zintegrowamy z AJAX o wpieera JSONA
+* skalowalny i wspiera nadchodzace standarty web serwisów
+* posiada domyslny mechanizm bezpieczenstwa(robust security), który jest bardzo silny
+
+Różnice miedzy WCF a Web Service
+* Atrubuty - dodanie atrybuty prze metoda umożliwia jej wywołanie w zdalny sposób
+WCF wykorzystuje  ServiceContract and OperationContract attributes,
+Web serwisy natomiast WebService and WebMethod attributes.
+* Protocols 
+WCF wpiera kilka protokołów: HTTP, Named Pipes, TCP, MSMQ
+Webserwisy natomiast tylko HTTP
+* Hosting mechanizm
+WCF można hostować na IIS (Internet Information Service), WAS (Windows Activation Service), lokalnie
+Windows Serwisy tylko na IIS
+* Services
+WCF wspiera robust security,  trustworthy messaging, transaction and interoperability,
+Web service tylko security services
+* Serializer 
+WCF wspiera DataContract serializer znajdujacy sie w System.Runtime.Serialiation
+Web Services wspiera XML Serializer w przestrzeni nazw System.Sml.Serialization
+*Obłsuga błedu
+Wcf wspiera dodatkowy mechanizm obsługi błedu FaultContract.
+Web service tego nie wspiera
+* Hash table
+WCF mozliwe jest serializacja hash tabeli
+Web serwer nie
+* Bindings
+WCF wspiera klika rodzaji jak BasicHttpBinding, WSDualHttpBinding, WSHttpBinding, itd.
+Web serwer tylko SOAP lub XMl
+* Multithreading 
+WCF Wspiera Multithreading  dzięki klasy ServiceBehavior 
+* Duplex Service Operations
+wcf wspiera,.
+web serwice nie
+
+
+
